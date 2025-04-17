@@ -24,7 +24,11 @@ background.src = "rua.png";
 let bgY = 0;
 let bgW = canvas.width;
 let bgH = canvas.height;
-let playerSpeed = 5;
+let playerSpeed = 1;
+let pX = 170;
+let pY = 500;
+let pW = 100;
+let pH = 100;
 
 
 
@@ -70,19 +74,31 @@ ctx.clearRect(0, 0, 600, 400);
 }
 */
 
+canvas.addEventListener (
+    "click", 
+    function(event)
+    {
+        let cX = event.clientX;
+        let cY = event.clientY;
+        console.log("Coords: " + cX + " ," + cY);
+    }
+);
+
+
 function jogar()
 {
     ctx.clearRect (0, 0, canvas.width, canvas.height);
-    ctx.drawImage(background, 0, bgY, bgW, bgH);
-    ctx.drawImage(background, 0, bgY, bgW, -bgH);
+
+    bgY += playerSpeed;
     if(bgY >= bgH)
     {
         bgY -= bgH;
 
     }
-    bgY += playerSpeed;
+    ctx.drawImage(background, 0, bgY, bgW, bgH);
+    ctx.drawImage(background, 0, bgY - bgH, bgW, bgH);
 
-    ctx.drawImage(player, 170, 500, 100, 100);
+    ctx.drawImage(player, pX, pY, pW, pH);
 }
 
 setInterval(jogar, 1000/60);
