@@ -86,3 +86,24 @@ function jogar()
 }
 
 setInterval(jogar, 1000/60);
+
+
+/*para ir para o lado jogarlateral ()
+
+function jogarLateral ();
+{
+    ctx.clearRect (0, 0, canvas.width, canvas.height);
+    
+    bgY -= playerSpeed;
+    if(bgY <= -bgW)
+    {
+        bgY += bgW;
+    }
+    ctx.drawImage(background, bgY, 0, bgW, bgH);
+    ctx.drawImage(background, bgY, 0, bgW, +bgW);
+
+    ctx.drawImage(player, 170, 500, 100, 100);
+
+}*/ 
+
+
