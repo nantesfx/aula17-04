@@ -75,14 +75,26 @@ ctx.clearRect(0, 0, 600, 400);
 */
 
 canvas.addEventListener (
-    "click", 
+    "mousemove", 
     function(event)
     {
-        let cX = event.clientX;
-        let cY = event.clientY;
-        console.log("Coords: " + cX + " ," + cY);
+        let rect = canvas.getBoundingClientRect();
+        let cX = event.clientX - rect.left;
+        let cY = event.clientY - rect.top;
+        //console.log("Coords: " + cX + " ," + cY);
+
+        pX = cX - pW/2;
+        //pY = cY - pH/2;
     }
 );
+
+canvas.addEventListener(
+    "click",
+    function(event)
+    {
+        console.log("atirou")
+    }
+)
 
 
 function jogar()

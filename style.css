@@ -9,6 +9,7 @@ h2 {
 canvas
 {
     border: 7px solid black;
+    cursor: none;
    }
 body{
     text-align:center ;
