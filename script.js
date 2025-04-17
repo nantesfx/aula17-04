@@ -24,7 +24,7 @@ background.src = "rua.png";
 let bgY = 0;
 let bgW = canvas.width;
 let bgH = canvas.height;
-let playerSpeed = 1;
+let playerSpeed = 5;
 
 
 
@@ -32,6 +32,7 @@ let playerSpeed = 1;
 {
 
 ctx.clearRect(0, 0, 600, 400);
+
 
 
     ang += 0.01;
@@ -73,8 +74,15 @@ function jogar()
 {
     ctx.clearRect (0, 0, canvas.width, canvas.height);
     ctx.drawImage(background, 0, bgY, bgW, bgH);
+    ctx.drawImage(background, 0, bgY, bgW, -bgH);
+    if(bgY >= bgH)
+    {
+        bgY -= bgH;
+
+    }
+    bgY += playerSpeed;
+
     ctx.drawImage(player, 170, 500, 100, 100);
-    ctx.player (170, 500, 100, 100);
 }
 
 setInterval(jogar, 1000/60);
